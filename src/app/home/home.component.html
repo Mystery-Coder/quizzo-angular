@@ -1,0 +1,18 @@
+<div class="main-container">
+  <mat-toolbar class="title">Quizzo - Share and Play Quizzes!</mat-toolbar>
+
+  <div class="content">
+    <mat-form-field>
+      <mat-label>Enter Quiz Name</mat-label>
+      <input matInput [(ngModel)]="quizName" />
+    </mat-form-field>
+    <button mat-fab color="accent" extended (click)="newQuiz()">
+      <mat-icon>add_circle_outline</mat-icon>
+      Add a New Quiz
+    </button>
+    <button mat-fab extended (click)="playQuiz()">
+      <mat-icon>play_circle_filled</mat-icon>
+      Play a Quiz
+    </button>
+  </div>
+</div>
