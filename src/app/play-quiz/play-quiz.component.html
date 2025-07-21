@@ -1,1 +1,21 @@
-<p>play-quiz works! {{ quizName() }}</p>
+<div class="center-content">
+  <div *ngIf="!isLoaded; else Loaded">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <ng-template #Loaded>
+    <div>
+      <div *ngIf="quizFound; else notFound">
+        <h2>Quiz Loaded Successfully!</h2>
+      </div>
+
+      <ng-template #notFound>
+        <h2>404 Error. Quiz not found.</h2>
+        <button mat-fab extended routerLink="">
+          <mat-icon>arrow_back</mat-icon>
+          Go back
+        </button>
+      </ng-template>
+    </div>
+  </ng-template>
+</div>

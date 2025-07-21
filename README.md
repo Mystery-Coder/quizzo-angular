@@ -4,7 +4,7 @@
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** Angular 16+, Signals API, Standalone Components
+- **Frontend:** Angular 16+, Standalone Components
 - **Backend:** Go (Golang)
 - **Database:** PostgreSQL
 - **HTTP Communication:** Angular's `HttpClient` (via `provideHttpClient()`)
