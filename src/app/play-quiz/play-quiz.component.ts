@@ -7,6 +7,9 @@ import { NgIf } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+
+import { QuizDataResponse } from '../../types';
+
 @Component({
   selector: 'app-play-quiz',
   imports: [
@@ -26,14 +29,19 @@ export class PlayQuizComponent {
   quizFound = false;
   isLoaded = false;
 
+  quizData: QuizDataResponse | null = null;
+
   constructor() {
     this.activatedRoute.params.subscribe((params) => {
       let quizName = params['quizName'];
       this.http
-        .get('http://localhost:8000/quiz?quiz_name=' + quizName)
+        .get<QuizDataResponse>(
+          'http://localhost:8000/quiz?quiz_name=' + quizName
+        )
         .pipe(
           catchError((error) => {
             if (error.status === 404) {
+              // Check API Reference
               console.error('Quiz not found.');
             } else {
               console.error('An error occurred:', error);
@@ -43,8 +51,9 @@ export class PlayQuizComponent {
         )
         .subscribe((data) => {
           if (data) {
-            console.log('Fetched quiz data:', data);
+            console.log(data);
             this.quizFound = true;
+            this.quizData = data;
           } else {
             console.log('No data to display.');
           }
