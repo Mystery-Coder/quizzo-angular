@@ -6,13 +6,26 @@
   <ng-template #Loaded>
     <div>
       <div *ngIf="quizFound; else notFound">
-        <h2>Quiz Loaded Successfully!</h2>
-        {{ quizData }}
+        <h1 style="font-weight: 300">
+          <span style="font-weight: 600">{{ quizData?.quiz?.quiz_name }}</span>
+          Submitted by
+          <span style="font-weight: 600">{{
+            quizData?.quiz?.submitted_by
+          }}</span>
+          at
+          {{ quizData?.quiz?.submitted_at | date : "medium" }}
+        </h1>
+
+        <div style="border: solid black 1px; border-radius: 3px">
+          sdfd fsd
+          <p>dfdf</p>
+          <p>sdf</p>
+        </div>
       </div>
 
       <ng-template #notFound>
         <h2>404 Error. Quiz not found.</h2>
-        <button mat-fab extended routerLink="">
+        <button mat-fab extended routerLink="/">
           <mat-icon>arrow_back</mat-icon>
           Go back
         </button>

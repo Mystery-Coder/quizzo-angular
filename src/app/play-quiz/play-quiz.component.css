@@ -1,6 +1,6 @@
 .center-content {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 100vh; /* Full screen height */
   text-align: center;

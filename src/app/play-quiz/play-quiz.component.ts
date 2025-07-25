@@ -1,13 +1,13 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { NgIf } from '@angular/common';
+import { NgIf, DatePipe } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatCard, MatCardModule } from '@angular/material/card';
 import { QuizDataResponse } from '../../types';
 
 @Component({
@@ -18,6 +18,8 @@ import { QuizDataResponse } from '../../types';
     MatIcon,
     MatButtonModule,
     RouterLink,
+    DatePipe,
+    MatCardModule,
   ],
   templateUrl: './play-quiz.component.html',
   styleUrl: './play-quiz.component.css',
