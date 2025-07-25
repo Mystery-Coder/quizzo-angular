@@ -7,7 +7,9 @@
     <div>
       <div *ngIf="quizFound; else notFound">
         <h1 style="font-weight: 300">
-          <span style="font-weight: 600">{{ quizData?.quiz?.quiz_name }}</span>
+          <span style="font-weight: 600; color: hsl(229, 96%, 71%)">{{
+            quizData?.quiz?.quiz_name
+          }}</span>
           Submitted by
           <span style="font-weight: 600">{{
             quizData?.quiz?.submitted_by
@@ -16,10 +18,30 @@
           {{ quizData?.quiz?.submitted_at | date : "medium" }}
         </h1>
 
-        <div style="border: solid black 1px; border-radius: 3px">
-          sdfd fsd
-          <p>dfdf</p>
-          <p>sdf</p>
+        <div style="font-size: larger">
+          <h2 style="font-weight: 300">
+            {{ currentQuestion.question }}
+          </h2>
+          <div style="display: flex; flex-direction: column; background: white">
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button value="{{ currentQuestion.option1 }}">{{
+                currentQuestion.option1
+              }}</mat-radio-button>
+              <mat-radio-button value="{{ currentQuestion.option2 }}">{{
+                currentQuestion.option2
+              }}</mat-radio-button>
+              <mat-radio-button value="{{ currentQuestion.option3 }}">{{
+                currentQuestion.option3
+              }}</mat-radio-button>
+              <mat-radio-button value="{{ currentQuestion.option4 }}">{{
+                currentQuestion.option4
+              }}</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <button mat-fab extended (click)="nextQuestion()">
+            Next
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
         </div>
       </div>
 

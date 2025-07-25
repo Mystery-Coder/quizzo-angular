@@ -7,9 +7,8 @@ import { NgIf, DatePipe } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCard, MatCardModule } from '@angular/material/card';
-import { QuizDataResponse } from '../../types';
-
+import { Question, QuizDataResponse } from '../../types';
+import { MatRadioModule } from '@angular/material/radio';
 @Component({
   selector: 'app-play-quiz',
   imports: [
@@ -19,7 +18,7 @@ import { QuizDataResponse } from '../../types';
     MatButtonModule,
     RouterLink,
     DatePipe,
-    MatCardModule,
+    MatRadioModule,
   ],
   templateUrl: './play-quiz.component.html',
   styleUrl: './play-quiz.component.css',
@@ -30,6 +29,7 @@ export class PlayQuizComponent {
 
   quizFound = false;
   isLoaded = false;
+  questionIndex = 0;
 
   quizData: QuizDataResponse | null = null;
 
@@ -62,5 +62,13 @@ export class PlayQuizComponent {
           this.isLoaded = true;
         });
     });
+  }
+
+  get currentQuestion(): Question {
+    return this.quizData!.questions[this.questionIndex];
+  }
+
+  nextQuestion() {
+    this.questionIndex++;
   }
 }
