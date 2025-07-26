@@ -18,12 +18,16 @@
           {{ quizData?.quiz?.submitted_at | date : "medium" }}
         </h1>
 
-        <div style="font-size: larger">
+        <div style="font-size: larger" *ngIf="!quizComplete; else Complete">
           <h2 style="font-weight: 300">
             {{ currentQuestion.question }}
           </h2>
-          <div style="display: flex; flex-direction: column; background: white">
-            <mat-radio-group aria-label="Select an option">
+          <div style="margin: 50px; padding: 1px">
+            <mat-radio-group
+              [(ngModel)]="selectedOption"
+              aria-label="Select an option"
+              style="display: flex; flex-direction: column"
+            >
               <mat-radio-button value="{{ currentQuestion.option1 }}">{{
                 currentQuestion.option1
               }}</mat-radio-button>
@@ -43,6 +47,9 @@
             <mat-icon>arrow_forward</mat-icon>
           </button>
         </div>
+        <ng-template #Complete>
+          You got {{ correctAnswers }} answers out of {{ noOfQuestions }}
+        </ng-template>
       </div>
 
       <ng-template #notFound>
