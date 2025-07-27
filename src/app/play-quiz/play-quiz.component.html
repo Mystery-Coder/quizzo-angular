@@ -1,5 +1,5 @@
-<div class="center-content">
-  <div *ngIf="!isLoaded; else Loaded">
+<div class="center-content-hori">
+  <div *ngIf="!isLoaded; else Loaded" class="center-content-vert">
     <mat-spinner></mat-spinner>
   </div>
 
@@ -48,16 +48,21 @@
           </button>
         </div>
         <ng-template #Complete>
-          You got {{ correctAnswers }} answers out of {{ noOfQuestions }}
+          <h1 style="font-weight: 400" class="center-content-vert">
+            You got {{ correctAnswers }} out of {{ noOfQuestions }} which is
+            {{ correctPercent }}%
+          </h1>
         </ng-template>
       </div>
 
       <ng-template #notFound>
-        <h2>404 Error. Quiz not found.</h2>
-        <button mat-fab extended routerLink="/">
-          <mat-icon>arrow_back</mat-icon>
-          Go back
-        </button>
+        <div class="center-content-vert">
+          <h2>404 Error. Quiz not found.</h2>
+          <button mat-fab extended routerLink="/">
+            <mat-icon>arrow_back</mat-icon>
+            Go back
+          </button>
+        </div>
       </ng-template>
     </div>
   </ng-template>

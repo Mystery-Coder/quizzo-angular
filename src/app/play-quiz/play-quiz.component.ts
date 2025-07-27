@@ -77,6 +77,9 @@ export class PlayQuizComponent {
   get currentQuestion(): Question {
     return this.quizData!.questions[this.questionIndex];
   }
+  get correctPercent(): number {
+    return Math.round((this.correctAnswers / this.noOfQuestions) * 100);
+  }
 
   nextQuestion() {
     if (this.questionIndex < this.noOfQuestions) {
