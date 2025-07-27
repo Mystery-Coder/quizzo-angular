@@ -8,3 +8,7 @@
 - **Backend:** Go (Golang)
 - **Database:** PostgreSQL
 - **HTTP Communication:** Angular's `HttpClient` (via `provideHttpClient()`)
+
+## Why Angular?
+
+Angular uses TypeScript-based framework with powerful tooling and a clear architectural structure. Its component-based design supports modular, reusable code, ideal for building interactive features like quizzes and results.
