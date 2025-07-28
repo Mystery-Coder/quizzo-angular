@@ -1,1 +1,34 @@
-<p>create-quiz works! {{ quizName() }}</p>
+<div>
+  <div class="center-content-hori">
+    <h1 style="font-weight: 300">Creating a new Quiz - {{ quizName }}</h1>
+    <h3 style="font-weight: 400; font-size: 30px">
+      Questions Added: {{ questionsAdded }}
+    </h3>
+
+    <mat-form-field>
+      <mat-label>Enter Question</mat-label>
+      <input matInput [(ngModel)]="question" />
+    </mat-form-field>
+
+    <div style="display: flex; gap: 20px">
+      <mat-form-field>
+        <mat-label>Option 1</mat-label>
+        <input matInput [(ngModel)]="option1" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Option 2</mat-label>
+        <input matInput [(ngModel)]="option2" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Option 3</mat-label>
+        <input matInput [(ngModel)]="option3" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Option 4</mat-label>
+        <input matInput [(ngModel)]="option4" />
+      </mat-form-field>
+    </div>
+
+    <button mat-fab extended (click)="addQuestion()">Add Question</button>
+  </div>
+</div>

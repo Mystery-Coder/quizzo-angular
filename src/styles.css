@@ -9,3 +9,20 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: linear-gradient(135deg, hsl(219, 98%, 81%) 0%, #ebd8f9 100%);
 }
+
+.center-content-hori {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  text-align: center;
+  flex-direction: column;
+}
+.center-content-vert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  text-align: center;
+  flex-direction: column;
+}
