@@ -32,14 +32,35 @@
       <mat-form-field>
         <mat-label>Select Answer</mat-label>
         <mat-select [(value)]="answer">
-          <!-- <mat-option>None</mat-option> -->
-          <mat-option value="option1">Option 1</mat-option>
-          <mat-option value="option2">Option 2</mat-option>
-          <mat-option value="option3">Option 3</mat-option>
-          <mat-option value="option4">Option 4</mat-option>
+          <mat-option value="" disabled>None</mat-option>
+          <mat-option [value]="option1">Option 1</mat-option>
+          <mat-option [value]="option2">Option 2</mat-option>
+          <mat-option [value]="option3">Option 3</mat-option>
+          <mat-option [value]="option4">Option 4</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     <button mat-fab extended (click)="addQuestion()">Add Question</button>
+
+    <div>
+      <div
+        *ngIf="submittedQuestions.length > 0; else NoQuestionsAdded"
+        style="margin: 50px"
+      >
+        <div
+          *ngFor="let q of submittedQuestions; let idx = index"
+          style="margin: 10px; padding: 6px; font-size: 20px"
+        >
+          Q{{ idx + 1 }}. {{ q.question }}
+          <button mat-fab extended>
+            <mat-icon>edit</mat-icon>
+            Edit
+          </button>
+        </div>
+      </div>
+      <ng-template #NoQuestionsAdded>
+        <h1>No Questions Added</h1>
+      </ng-template>
+    </div>
   </div>
 </div>

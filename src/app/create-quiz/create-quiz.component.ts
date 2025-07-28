@@ -6,8 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
-
+import { NgIf, NgFor } from '@angular/common';
 import { Question } from '../../types';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-create-quiz',
@@ -17,6 +18,9 @@ import { Question } from '../../types';
     FormsModule,
     MatButtonModule,
     MatSelectModule,
+    NgIf,
+    NgFor,
+    MatIcon,
   ],
   templateUrl: './create-quiz.component.html',
   styleUrl: './create-quiz.component.css',
@@ -65,7 +69,7 @@ export class CreateQuizComponent {
       option3: this.option3,
       option4: this.option4,
     };
-    this.submittedQuestions.push(submittedQuestion);
+    this.submittedQuestions[this.questionsAdded++] = submittedQuestion;
 
     this.question = '';
     this.option1 = '';
