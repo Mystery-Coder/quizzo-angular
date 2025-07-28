@@ -20,3 +20,7 @@ export interface QuizDataResponse {
   quiz: Quiz;
   questions: Question[];
 }
+
+export interface QuizExists {
+  exists: boolean;
+}
