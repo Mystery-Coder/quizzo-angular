@@ -40,7 +40,10 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <button mat-fab extended (click)="addQuestion()">Add Question</button>
+    <div style="display: flex; flex-direction: row; gap: 5px; margin: 3px">
+      <button mat-fab extended (click)="addQuestion()">Add Question</button>
+      <button mat-fab extended (click)="submitQuiz()">Submit Quiz</button>
+    </div>
 
     <div>
       <div
@@ -49,13 +52,21 @@
       >
         <div
           *ngFor="let q of submittedQuestions; let idx = index"
-          style="margin: 10px; padding: 6px; font-size: 20px"
+          class="question-container"
         >
-          Q{{ idx + 1 }}. {{ q.question }}
-          <button mat-fab extended>
-            <mat-icon>edit</mat-icon>
-            Edit
-          </button>
+          <div class="question-content">
+            <div class="added-question">
+              <strong>Q{{ idx + 1 }}:</strong> {{ q.question }}
+              <div>
+                <span class="label">Answer:</span>
+                <span class="answer">{{ q.answer }}</span>
+              </div>
+            </div>
+            <button mat-fab color="primary" extended>
+              <mat-icon>edit</mat-icon>
+              Edit
+            </button>
+          </div>
         </div>
       </div>
       <ng-template #NoQuestionsAdded>

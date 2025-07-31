@@ -1,0 +1,40 @@
+.question-container {
+  margin: 12px 0;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f4f8fc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.question-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.added-question {
+  flex: 1;
+  border: 1px solid #b0b0b0;
+  border-radius: 6px;
+  background-color: #e9f3fb;
+  padding: 12px;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-right: 12px;
+}
+
+.label {
+  font-weight: 500;
+  color: #333;
+  margin-right: 4px;
+}
+
+.answer {
+  color: green;
+  font-weight: 500;
+}
+
+.edit-button {
+  white-space: nowrap;
+  min-width: 80px;
+}
