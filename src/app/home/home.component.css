@@ -23,3 +23,10 @@
   width: 200px;
   align-self: center;
 }
+
+.footer-text {
+  margin-bottom: 100px;
+  text-align: center;
+  font-size: 2rem;
+  opacity: 0.7;
+}
