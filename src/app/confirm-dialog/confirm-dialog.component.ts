@@ -55,7 +55,11 @@ export class ConfirmDialog {
     this.data.quiz.submitted_by = this.submitterName;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     this.http
-      .post('http://localhost:8000/quiz', this.data, { headers })
+      .post(
+        'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz',
+        this.data,
+        { headers }
+      )
       .pipe(
         catchError((err) => {
           if (err.status == 400) {

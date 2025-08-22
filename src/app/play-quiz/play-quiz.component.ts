@@ -47,7 +47,8 @@ export class PlayQuizComponent {
       let quizName = params['quizName'];
       this.http
         .get<QuizDataResponse>(
-          'http://localhost:8000/quiz?quiz_name=' + quizName
+          'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz?quiz_name=' +
+            quizName
         )
         .pipe(
           catchError((error) => {

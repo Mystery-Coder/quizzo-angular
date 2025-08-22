@@ -46,7 +46,8 @@ export class HomeComponent {
 
     this.http
       .get<QuizExists>(
-        'http://localhost:8000/quiz_exists?quiz_name=' + this.quizName
+        'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz_exists?quiz_name=' +
+          this.quizName
       )
       .pipe(
         catchError((error) => {
