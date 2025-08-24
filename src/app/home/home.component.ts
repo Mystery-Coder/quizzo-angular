@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { QuizExists } from '../../types';
@@ -44,10 +44,10 @@ export class HomeComponent {
       return;
     }
 
+    const params = new HttpParams().set('quiz_name', this.quizName)
     this.http
       .get<QuizExists>(
-        'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz_exists?quiz_name=' +
-          this.quizName
+        'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz_exists', { params}
       )
       .pipe(
         catchError((error) => {
