@@ -48,7 +48,7 @@ export class PlayQuizComponent {
       const httpParams = new HttpParams().set('quiz_name', quizName);
       this.http
         .get<QuizDataResponse>(
-          'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz?quiz_name=',
+          'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz',
           { params: httpParams }
         )
         .pipe(
