@@ -44,10 +44,11 @@ export class HomeComponent {
       return;
     }
 
-    const params = new HttpParams().set('quiz_name', this.quizName)
+    const params = new HttpParams().set('quiz_name', this.quizName);
     this.http
       .get<QuizExists>(
-        'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz_exists', { params}
+        'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz_exists',
+        { params }
       )
       .pipe(
         catchError((error) => {

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { NgIf, DatePipe } from '@angular/common';
@@ -45,10 +45,11 @@ export class PlayQuizComponent {
   constructor() {
     this.activatedRoute.params.subscribe((params) => {
       let quizName = params['quizName'];
+      const httpParams = new HttpParams().set('quiz_name', quizName);
       this.http
         .get<QuizDataResponse>(
-          'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz?quiz_name=' +
-            quizName
+          'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz?quiz_name=',
+          { params: httpParams }
         )
         .pipe(
           catchError((error) => {
