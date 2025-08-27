@@ -49,7 +49,9 @@ export class PlayQuizComponent {
       this.http
         .get<QuizDataResponse>(
           'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz',
-          { params: httpParams }
+          {
+            params: httpParams,
+          }
         )
         .pipe(
           catchError((error) => {
