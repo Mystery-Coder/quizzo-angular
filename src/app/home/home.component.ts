@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -29,22 +29,27 @@ export class HomeComponent {
   private http = inject(HttpClient);
   private snackBar = inject(MatSnackBar);
 
-  quizName = '';
+  quizName = signal('');
   constructor(private router: Router) {}
+
+  private QuizExist() {}
+
   playQuiz() {
-    if (this.quizName == '') {
+    console.log(this.quizName());
+    if (this.quizName() == '') {
       this.snackBar.open('Enter Quiz Name', 'Dismiss', { duration: 1 * 1000 });
       return;
     }
-    this.router.navigate(['/play-quiz', this.quizName]);
+    this.router.navigate(['/play-quiz', this.quizName()]);
   }
+
   newQuiz() {
-    if (this.quizName == '') {
+    if (this.quizName() == '') {
       this.snackBar.open('Enter Quiz Name', 'Dismiss', { duration: 1 * 1000 });
       return;
     }
 
-    const params = new HttpParams().set('quiz_name', this.quizName);
+    const params = new HttpParams().set('quiz_name', this.quizName());
     this.http
       .get<QuizExists>(
         'https://go-quizzo-api-srikar5725-oprcymdd.leapcell.dev/quiz_exists',
@@ -64,7 +69,7 @@ export class HomeComponent {
             this.snackBar.open('Quiz Name Taken', 'OK', { duration: 1 * 1000 });
             return;
           }
-          this.router.navigate(['/create-quiz', this.quizName]);
+          this.router.navigate(['/create-quiz', this.quizName()]);
         }
       });
   }

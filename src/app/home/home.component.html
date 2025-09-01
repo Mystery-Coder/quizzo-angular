@@ -4,7 +4,11 @@
   <div class="content">
     <mat-form-field>
       <mat-label>Enter Quiz Name</mat-label>
-      <input matInput [(ngModel)]="quizName" />
+      <input
+        matInput
+        [value]="quizName()"
+        (input)="quizName.set($any($event.target).value)"
+      />
     </mat-form-field>
     <button mat-fab color="accent" extended (click)="newQuiz()">
       <mat-icon>add_circle_outline</mat-icon>
